@@ -11,7 +11,7 @@ const fadeUp = { hidden: { opacity: 0, y: 40 }, show: { opacity: 1, y: 0 } };
 const fadeRight = { hidden: { opacity: 0, x: 60 }, show: { opacity: 1, x: 0 } };
 
 const floaters = [
-  { icon: <BarChart3 size={18} color="#3B82F6" />, label: '₹2.4 Cr Sales', top: '15%', left: '-15%', delay: 0 },
+  { icon: <BarChart3 size={18} color="#3B82F6" />, label: '₹2 Lakhs Sales', top: '15%', left: '-15%', delay: 0 },
   { icon: <Package size={18} color="#8B5CF6" />, label: '1240 Inventory Items', top: '65%', left: '-20%', delay: 0.5 },
   { icon: <Users size={18} color="#22C55E" />, label: '500+ Customers', top: '25%', right: '-10%', delay: 1 },
   { icon: <CheckCircle2 size={18} color="#F59E0B" />, label: 'GST Ready', top: '75%', right: '-5%', delay: 1.5 },
@@ -86,18 +86,18 @@ export default function Hero() {
           </motion.div>
 
           <motion.div className="hero__stats-row" variants={fadeUp} transition={{ delay: 0.65 }}>
-             <div className="hero__stat-item">
-               <h3>500+</h3>
-               <p>Businesses</p>
-             </div>
-             <div className="hero__stat-item">
-               <h3>10000+</h3>
-               <p>Invoices</p>
-             </div>
-             <div className="hero__stat-item">
-               <h3>99%</h3>
-               <p>Accuracy</p>
-             </div>
+            <div className="hero__stat-item">
+              <h3>500+</h3>
+              <p>Businesses</p>
+            </div>
+            <div className="hero__stat-item">
+              <h3>10000+</h3>
+              <p>Invoices</p>
+            </div>
+            <div className="hero__stat-item">
+              <h3>99%</h3>
+              <p>Accuracy</p>
+            </div>
           </motion.div>
         </motion.div>
 
@@ -113,7 +113,7 @@ export default function Hero() {
             <div className="hero__dashboard glass-card">
               <div className="hero__dashboard-header">
                 <div className="hero__dashboard-dots">
-                  <span style={{background: '#EF4444'}} /><span style={{background: '#F59E0B'}} /><span style={{background: '#22C55E'}} />
+                  <span style={{ background: '#EF4444' }} /><span style={{ background: '#F59E0B' }} /><span style={{ background: '#22C55E' }} />
                 </div>
                 <span className="hero__dashboard-title">Dashboard</span>
               </div>
@@ -121,7 +121,7 @@ export default function Hero() {
               <div className="hero__dashboard-body">
                 <div className="hero__db-stats">
                   {[
-                    { label: 'Total Revenue', value: '₹ 2.4 Cr', color: '#3B82F6' },
+                    { label: 'Total Revenue', value: '₹2 Lakhs', color: '#3B82F6' },
                     { label: 'Active Users', value: '1,204', color: '#8B5CF6' },
                     { label: 'Orders', value: '890', color: '#22C55E' },
                   ].map((s) => (
