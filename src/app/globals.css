@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Colors */
+    --primary: #2563EB;
+    --primary-light: #3B82F6;
+    --primary-dark: #1D4ED8;
+    --secondary: #8B5CF6;
+    --secondary-light: #A78BFA;
+    
+    --dark-bg: #0F172A; /* Main Background */
+    --dark-surface: #1E293B;
+    --dark-card: rgba(255, 255, 255, 0.03);
+    --dark-card-hover: rgba(255, 255, 255, 0.08);
+    
+    --accent: #22C55E; /* WhatsApp Green */
+    --accent-glow: rgba(34, 197, 94, 0.3);
+    
+    --text-main: #F8FAFC;
+    --text-muted: #94A3B8;
+    --text-dark: #334155;
+    
+    /* Borders & Shadows */
+    --border-light: rgba(255, 255, 255, 0.1);
+    --border-glow: rgba(139, 92, 246, 0.3);
+    
+    --shadow-glow-primary: 0 0 20px rgba(37, 99, 235, 0.4);
+    --shadow-glow-secondary: 0 0 20px rgba(139, 92, 246, 0.4);
+    --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 32px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-[#0F172A] text-[#F8FAFC] antialiased leading-relaxed overflow-x-hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-poppins), sans-serif;
+    line-height: 1.2;
+    color: var(--text-main);
+  }
+
+  section {
+    padding: 100px 0;
+    position: relative;
+  }
+
+  @media (max-width: 768px) {
+    section {
+      padding: 60px 0;
+    }
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-blue-400 to-purple-400;
+  }
+  
+  .section-title {
+    @apply font-poppins text-3xl md:text-5xl font-extrabold mb-5;
+  }
+  
+  .section-subtitle {
+    @apply text-lg text-slate-400 max-w-[600px] mb-10 leading-loose;
+  }
+}
+
+@layer components {
+  /* Container Utilities */
+  .container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Glassmorphism Utilities */
+  .glass-panel {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-light);
+  }
+
+  .glass-card {
+    background: var(--dark-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-glass);
+    transition: all 0.3s ease;
+  }
+
+  .glass-card:hover {
+    background: var(--dark-card-hover);
+    border-color: var(--border-glow);
+    transform: translateY(-5px);
+  }
+
+  /* Button Utilities */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2.5 bg-gradient-to-br from-blue-600 to-purple-500 text-white px-8 py-4 rounded-xl font-semibold text-base transition-all duration-300 relative overflow-hidden;
+    box-shadow: var(--shadow-glow-primary);
+  }
+
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: all 0.5s ease;
+  }
+
+  .btn-primary:hover::before {
+    left: 100%;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.6);
+  }
+
+  .btn-whatsapp {
+    @apply inline-flex items-center justify-center gap-2.5 bg-slate-800 text-white border border-green-500 px-8 py-4 rounded-xl font-semibold text-base transition-all duration-300;
+    box-shadow: 0 0 15px var(--accent-glow);
+  }
+
+  .btn-whatsapp:hover {
+    @apply bg-green-500;
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(34, 197, 94, 0.5);
+  }
+
+  /* Glow Effects */
+  .aurora-glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, rgba(37, 99, 235, 0.1) 40%, transparent 70%);
+    filter: blur(60px);
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .grid-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: -2;
+    pointer-events: none;
+  }
+}
