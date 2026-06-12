@@ -1,0 +1,254 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 140px 0 80px;
+  overflow: hidden;
+}
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--primary-light);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 600;
+  width: fit-content;
+}
+
+.hero__headline {
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.hero__sub {
+  font-size: 18px;
+  color: var(--text-muted);
+  line-height: 1.8;
+  max-width: 90%;
+}
+
+.hero__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.hero__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+.hero__btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.hero__stats-row {
+  display: flex;
+  gap: 40px;
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border-light);
+}
+
+.hero__stat-item h3 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.hero__stat-item p {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* Dashboard mockup */
+.hero__visual {
+  position: relative;
+  perspective: 1000px;
+}
+
+.hero__dashboard-wrapper {
+  position: relative;
+  transform: rotateY(-15deg) rotateX(10deg);
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+}
+
+.hero__dashboard-wrapper:hover {
+  transform: rotateY(-5deg) rotateX(5deg);
+}
+
+.hero__dashboard {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: -20px 20px 60px rgba(0, 0, 0, 0.4), var(--shadow-glow-primary);
+}
+
+.hero__dashboard-header {
+  background: rgba(15, 23, 42, 0.8);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.hero__dashboard-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.hero__dashboard-dots span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.hero__dashboard-title {
+  font-size: 14px;
+  color: var(--text-muted);
+  font-family: 'Inter', sans-serif;
+  margin-left: 10px;
+}
+
+.hero__dashboard-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hero__db-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.hero__db-stat {
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hero__db-stat-val {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+}
+
+.hero__db-stat-lbl {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.hero__db-chart {
+  border-radius: 16px;
+  padding: 20px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero__db-chart-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 16px;
+}
+
+.hero__db-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  flex: 1;
+}
+
+.hero__db-bar {
+  flex: 1;
+  border-radius: 4px 4px 0 0;
+  transition: all 0.3s;
+}
+
+/* Floaters */
+.hero__floater {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-main);
+  z-index: 20;
+  transform-style: preserve-3d;
+  transform: translateZ(50px);
+}
+
+.hero__floater-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+@media (max-width: 1024px) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  
+  .hero__visual {
+    perspective: none;
+    padding: 0 20px;
+  }
+  
+  .hero__dashboard-wrapper {
+    transform: none;
+  }
+
+  .hero__dashboard-wrapper:hover {
+    transform: none;
+  }
+
+  .hero__floater {
+    display: none;
+  }
+}

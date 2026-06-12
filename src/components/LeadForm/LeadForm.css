@@ -1,0 +1,244 @@
+.lead {
+  position: relative;
+  background-color: var(--dark-bg);
+  padding: 100px 0;
+  overflow: hidden;
+}
+
+.lead__bg-orb {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.15), transparent 70%);
+  top: 50%;
+  left: -200px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.lead__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.lead__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary-light);
+  margin-bottom: 20px;
+  width: fit-content;
+}
+
+.lead__info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.lead__title {
+  margin-bottom: 0;
+}
+
+.lead__desc {
+  font-size: 18px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.lead__points {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.lead__point {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+.lead__contact {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 16px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-light);
+}
+
+.lead__contact-label {
+  font-size: 14px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.lead__phone,
+.lead__wa {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-main);
+  transition: color 0.3s;
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+}
+
+.lead__phone:hover { color: var(--primary-light); }
+.lead__wa:hover { color: var(--accent); }
+
+/* Card */
+.lead__card {
+  padding: 48px;
+  border-radius: 24px;
+}
+
+.lead__card-header {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.lead__card-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.lead__card-sub {
+  font-size: 14px;
+  color: var(--accent);
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.lead__form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.lead__field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lead__label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.lead__input {
+  width: 100%;
+  padding: 16px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-family: 'Inter', sans-serif;
+  color: var(--text-main);
+  transition: all 0.3s;
+  outline: none;
+}
+
+.lead__input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.lead__input:focus {
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+}
+
+.lead__input--error {
+  border-color: #EF4444;
+}
+
+.lead__select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='rgba(255,255,255,0.5)'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 16px;
+  padding-right: 48px;
+}
+
+.lead__error {
+  font-size: 13px;
+  color: #EF4444;
+  font-weight: 500;
+}
+
+.lead__submit {
+  width: 100%;
+  justify-content: center;
+  padding: 18px;
+  font-size: 16px;
+  border-radius: 12px;
+  margin-top: 8px;
+}
+
+.lead__disclaimer {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Success */
+.lead__success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  padding: 32px 0;
+}
+
+.lead__success-icon {
+  font-size: 80px;
+}
+
+.lead__success h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.lead__success p {
+  font-size: 16px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.lead__wa-btn {
+  margin-top: 16px;
+}
+
+@media (max-width: 1024px) {
+  .lead__inner {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .lead__card {
+    padding: 32px 24px;
+  }
+}
