@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, CalendarDays } from 'lucide-react';
 import './Solution.css';
 
 const features = [
@@ -103,12 +103,13 @@ export default function Solution() {
 
           <motion.a
             href="#contact"
-            className="btn-primary solution__cta"
+            className="btn-primary solution__cta group"
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.9 }}
           >
-            🚀 Get Free Demo Now
+            <CalendarDays size={20} className="group-hover:scale-110 transition-transform duration-300" />
+            Book Free Demo
           </motion.a>
         </motion.div>
       </div>

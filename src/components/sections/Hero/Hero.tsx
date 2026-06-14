@@ -52,7 +52,7 @@ export default function Hero() {
             variants={fadeUp}
             transition={{ delay: 0.35 }}
           >
-            Free Demo Available | GST Billing | Stock Management | Reports
+            Free Demo Available | Account Management | Stock Management | Reports
           </motion.p>
 
           <motion.div

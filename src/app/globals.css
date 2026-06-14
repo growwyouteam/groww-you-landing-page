@@ -10,27 +10,29 @@
     --primary-dark: #1D4ED8;
     --secondary: #8B5CF6;
     --secondary-light: #A78BFA;
-    
-    --dark-bg: #0F172A; /* Main Background */
+
+    --dark-bg: #0F172A;
+    /* Main Background */
     --dark-surface: #1E293B;
     --dark-card: rgba(255, 255, 255, 0.03);
     --dark-card-hover: rgba(255, 255, 255, 0.08);
-    
-    --accent: #22C55E; /* WhatsApp Green */
+
+    --accent: #22C55E;
+    /* WhatsApp Green */
     --accent-glow: rgba(34, 197, 94, 0.3);
-    
+
     --text-main: #F8FAFC;
     --text-muted: #94A3B8;
     --text-dark: #334155;
-    
+
     /* Borders & Shadows */
     --border-light: rgba(255, 255, 255, 0.1);
     --border-glow: rgba(139, 92, 246, 0.3);
-    
+
     --shadow-glow-primary: 0 0 20px rgba(37, 99, 235, 0.4);
     --shadow-glow-secondary: 0 0 20px rgba(139, 92, 246, 0.4);
     --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    
+
     /* Border Radius */
     --radius-sm: 8px;
     --radius-md: 16px;
@@ -46,7 +48,12 @@
     @apply bg-[#0F172A] text-[#F8FAFC] antialiased leading-relaxed overflow-x-hidden;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-poppins), sans-serif;
     line-height: 1.2;
     color: var(--text-main);
@@ -68,17 +75,18 @@
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-br from-blue-400 to-purple-400;
   }
-  
+
   .section-title {
     @apply font-poppins text-3xl md:text-5xl font-extrabold mb-5;
   }
-  
+
   .section-subtitle {
     @apply text-lg text-slate-400 max-w-[600px] mb-10 leading-loose;
   }
 }
 
 @layer components {
+
   /* Container Utilities */
   .container {
     width: 100%;
@@ -124,7 +132,7 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
     transition: all 0.5s ease;
   }
 
@@ -165,9 +173,9 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: 
-      linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
     background-size: 40px 40px;
     z-index: -2;
     pointer-events: none;
