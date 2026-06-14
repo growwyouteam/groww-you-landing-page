@@ -2,6 +2,10 @@
   background: #F8FAFC;
 }
 
+#faqs {
+  color: black;
+}
+
 .faq__header {
   text-align: center;
   margin-bottom: 52px;
@@ -29,7 +33,7 @@
 
 .faq__item--open {
   border-color: #BFDBFE;
-  box-shadow: 0 4px 20px rgba(37,99,235,0.1);
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.1);
 }
 
 .faq__question {

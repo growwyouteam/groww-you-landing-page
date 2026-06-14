@@ -83,8 +83,8 @@ export default function FAQ() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <span className="section-badge">❓ FAQ</span>
-          <h2 className="section-title">Aapke <span>Sawal, Hamare Jawab</span></h2>
+          <span className="section-badge" id="faqs">❓ FAQ</span>
+          <h2 className="section-title" id="faqs">Aapke <span>Sawal, Hamare Jawab</span></h2>
           <p className="section-subtitle">
             Sabse common questions ke jawab yahan hain. Aur kuch poochna hai toh WhatsApp karein!
           </p>

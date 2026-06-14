@@ -2,14 +2,45 @@
 
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FileX, AlertTriangle, Calculator, TrendingDown } from 'lucide-react';
+import { FileWarning, Boxes, AlertTriangle, Calculator, Percent, TrendingDown, Clock } from 'lucide-react';
 import './Problem.css';
 
+const ManualBillingIcon = () => (
+  <FileWarning size={36} strokeWidth={2.2} style={{ filter: 'drop-shadow(0 0 2px currentColor)' }} />
+);
+
+const StockMismatchIcon = () => (
+  <div style={{ position: 'relative', width: 36, height: 36, filter: 'drop-shadow(0 0 2px currentColor)' }}>
+    <Boxes size={36} strokeWidth={2.2} />
+    <div style={{ position: 'absolute', bottom: -2, right: -6, background: '#0F172A', borderRadius: '50%', padding: '2px' }}>
+      <AlertTriangle size={16} strokeWidth={2.5} />
+    </div>
+  </div>
+);
+
+const GSTErrorsIcon = () => (
+  <div style={{ position: 'relative', width: 36, height: 36, filter: 'drop-shadow(0 0 2px currentColor)' }}>
+    <Calculator size={36} strokeWidth={2.2} />
+    <div style={{ position: 'absolute', bottom: -2, right: -6, background: '#0F172A', borderRadius: '50%', padding: '2px' }}>
+      <Percent size={16} strokeWidth={2.5} />
+    </div>
+  </div>
+);
+
+const OutstandingTrackingIcon = () => (
+  <div style={{ position: 'relative', width: 36, height: 36, filter: 'drop-shadow(0 0 2px currentColor)' }}>
+    <TrendingDown size={36} strokeWidth={2.2} />
+    <div style={{ position: 'absolute', bottom: -2, right: -6, background: '#0F172A', borderRadius: '50%', padding: '2px' }}>
+      <Clock size={16} strokeWidth={2.5} />
+    </div>
+  </div>
+);
+
 const problems = [
-  { icon: <FileX size={32} />, title: 'Manual Billing', desc: 'Handwritten invoices take hours and lead to errors, causing dissatisfied customers.', color: '#EF4444' },
-  { icon: <AlertTriangle size={32} />, title: 'Stock Mismatch', desc: 'Paper records differ from actual godown stock. Zero visibility on exact inventory levels.', color: '#F59E0B' },
-  { icon: <Calculator size={32} />, title: 'GST Errors', desc: 'Incorrect GST calculations leading to return filing confusion and penalty risks.', color: '#8B5CF6' },
-  { icon: <TrendingDown size={32} />, title: 'Outstanding Tracking', desc: 'Extremely difficult to track payables and receivables across multiple clients.', color: '#EC4899' },
+  { icon: <ManualBillingIcon />, title: 'Manual Billing', desc: 'Handwritten invoices take hours and lead to errors, causing dissatisfied customers.', color: '#FF5A5A' },
+  { icon: <StockMismatchIcon />, title: 'Stock Mismatch', desc: 'Paper records differ from actual godown stock. Zero visibility on exact inventory levels.', color: '#FFB020' },
+  { icon: <GSTErrorsIcon />, title: 'GST Errors', desc: 'Incorrect GST calculations leading to return filing confusion and penalty risks.', color: '#8B5CF6' },
+  { icon: <OutstandingTrackingIcon />, title: 'Outstanding Tracking', desc: 'Extremely difficult to track payables and receivables across multiple clients.', color: '#EC4899' },
 ];
 
 export default function Problem() {

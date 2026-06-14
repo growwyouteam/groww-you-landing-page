@@ -3,14 +3,55 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import CountUp from 'react-countup';
-import { Building2, FileCheck, Star, Clock } from 'lucide-react';
+import { Building2, MapPin, FileCheck, Calendar, BadgeCheck, Star, Headphones, Clock } from 'lucide-react';
 import './Stats.css';
 
+const BadgeOverlay = ({ children }: { children: React.ReactNode }) => (
+  <div style={{ 
+    position: 'absolute', 
+    bottom: -4, 
+    right: -6, 
+    background: '#0F172A', 
+    borderRadius: '50%', 
+    padding: '2px',
+  }}>
+    {children}
+  </div>
+);
+
+const BusinessesIcon = () => (
+  <div style={{ position: 'relative', width: 32, height: 32, filter: 'drop-shadow(0 0 2px currentColor)' }}>
+    <Building2 size={32} strokeWidth={2.2} />
+    <BadgeOverlay><MapPin size={16} strokeWidth={2.5} /></BadgeOverlay>
+  </div>
+);
+
+const InvoicesIcon = () => (
+  <div style={{ position: 'relative', width: 32, height: 32, filter: 'drop-shadow(0 0 2px currentColor)' }}>
+    <FileCheck size={32} strokeWidth={2.2} />
+    <BadgeOverlay><Calendar size={16} strokeWidth={2.5} /></BadgeOverlay>
+  </div>
+);
+
+const AccuracyIcon = () => (
+  <div style={{ position: 'relative', width: 32, height: 32, filter: 'drop-shadow(0 0 2px currentColor)' }}>
+    <BadgeCheck size={32} strokeWidth={2.2} />
+    <BadgeOverlay><Star size={16} strokeWidth={2.5} /></BadgeOverlay>
+  </div>
+);
+
+const SupportIcon = () => (
+  <div style={{ position: 'relative', width: 32, height: 32, filter: 'drop-shadow(0 0 2px currentColor)' }}>
+    <Headphones size={32} strokeWidth={2.2} />
+    <BadgeOverlay><Clock size={16} strokeWidth={2.5} /></BadgeOverlay>
+  </div>
+);
+
 const stats = [
-  { icon: <Building2 size={30} />, end: 500, suffix: '+', label: 'Businesses', sub: 'Across India', color: 'var(--primary-light)' },
-  { icon: <FileCheck size={30} />, end: 10000, suffix: '+', label: 'Invoices', sub: 'Generated Every Month', color: 'var(--secondary-light)' },
-  { icon: <Star size={30} />, end: 99, suffix: '%', label: 'Accuracy', sub: 'In Tax Calculations', color: 'var(--accent)' },
-  { icon: <Clock size={30} />, end: 24, suffix: '/7', label: 'Support', sub: 'Dedicated Assistance', color: '#F59E0B' },
+  { icon: <BusinessesIcon />, end: 500, suffix: '+', label: 'Businesses', sub: 'Across India', color: 'var(--primary-light)' },
+  { icon: <InvoicesIcon />, end: 10000, suffix: '+', label: 'Invoices', sub: 'Generated Every Month', color: 'var(--secondary-light)' },
+  { icon: <AccuracyIcon />, end: 99, suffix: '%', label: 'Accuracy', sub: 'In Tax Calculations', color: 'var(--accent)' },
+  { icon: <SupportIcon />, end: 24, suffix: '/7', label: 'Support', sub: 'Dedicated Assistance', color: '#F59E0B' },
 ];
 
 export default function Stats() {

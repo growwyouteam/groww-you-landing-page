@@ -4,7 +4,7 @@
 
 import { motion } from 'framer-motion';
 import { FaWhatsapp } from 'react-icons/fa';
-import { Zap, BarChart3, Package, Users, CheckCircle2 } from 'lucide-react';
+import { Zap, BarChart3, Package, Users, CheckCircle2, PlayCircle } from 'lucide-react';
 import './Hero.css';
 
 const fadeUp = { hidden: { opacity: 0, y: 40 }, show: { opacity: 1, y: 0 } };
@@ -43,8 +43,8 @@ export default function Hero() {
             variants={fadeUp}
             transition={{ delay: 0.2 }}
           >
-            Billing, Inventory & Accounts –<br />
-            <span className="text-gradient">Sab Kuch Ek Software Mein</span>
+            Apne Business Ka Billing, Inventory Aur Accounts<br />
+            <span className="text-gradient">Ek Hi Software Mein Manage Karein</span>
           </motion.h1>
 
           <motion.p
@@ -52,7 +52,7 @@ export default function Hero() {
             variants={fadeUp}
             transition={{ delay: 0.35 }}
           >
-            Transform your business with a premium cloud ERP. Seamless GST billing, real-time inventory management, and powerful financial tracking designed for modern enterprises.
+            Free Demo Available | GST Billing | Stock Management | Reports
           </motion.p>
 
           <motion.div
@@ -72,20 +72,22 @@ export default function Hero() {
             variants={fadeUp}
             transition={{ delay: 0.55 }}
           >
-            <a href="#contact" className="btn-primary hero__btn-demo">
-              🚀 Book Free Demo
+            <a href="#contact" className="btn-primary hero__btn-demo hero__btn-demo--pulse">
+              <PlayCircle className="hero__btn-icon" size={22} />
+              Book Free Demo
             </a>
             <a
               href="https://wa.me/919999999999?text=Hi%2C%20I%20want%20to%20know%20more%20about%20Groww%20You%20ERP"
               target="_blank"
               rel="noreferrer"
-              className="btn-whatsapp"
+              className="btn-whatsapp hero__btn-wa"
             >
-              💬 WhatsApp Now
+              <FaWhatsapp className="hero__btn-icon" size={22} />
+              WhatsApp Now
             </a>
           </motion.div>
 
-          <motion.div className="hero__stats-row" variants={fadeUp} transition={{ delay: 0.65 }}>
+          {/* <motion.div className="hero__stats-row" variants={fadeUp} transition={{ delay: 0.65 }}>
             <div className="hero__stat-item">
               <h3>500+</h3>
               <p>Businesses</p>
@@ -98,7 +100,7 @@ export default function Hero() {
               <h3>99%</h3>
               <p>Accuracy</p>
             </div>
-          </motion.div>
+          </motion.div> */}
         </motion.div>
 
         {/* Right – Dashboard mockup */}

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useForm } from 'react-hook-form';
-import { Rocket, User, Phone, Briefcase, CheckCircle } from 'lucide-react';
+import { Rocket, User, Phone, Briefcase, CheckCircle, PhoneCall, Sparkles, Wand2 } from 'lucide-react';
 import './LeadForm.css';
 
 const businessTypes = [
@@ -13,10 +13,26 @@ const businessTypes = [
   'Other',
 ];
 
+const WhatsAppOutlineIcon = ({ size = 18 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: '#22C55E', filter: 'drop-shadow(0 0 4px rgba(34, 197, 94, 0.4))', flexShrink: 0, marginRight: '8px' }}>
+    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+    <path d="M16 14.5c-.3.8-1.5 1.5-2.2 1.5s-2.1-.5-3.6-2c-1.5-1.5-2-2.9-2-3.6s.7-1.9 1.5-2.2c.4-.2.9 0 1.1.4l.8 1.8c.1.3.1.6-.1.8l-.5.6c-.2.2-.2.5 0 .8.5.8 1.2 1.5 2 2 .3.2.6.2.8 0l.6-.5c.2-.2.5-.2.8-.1l1.8.8c.4.2.6.7.4 1.1z"/>
+  </svg>
+);
+
+const DemoBadgeIcon = () => (
+  <span style={{ display: 'inline-flex', alignItems: 'center', position: 'relative', marginRight: '6px' }}>
+    <Rocket size={16} strokeWidth={2} style={{ color: '#A855F7', filter: 'drop-shadow(0 0 4px rgba(168, 85, 247, 0.5))' }} />
+    <Sparkles size={8} strokeWidth={2.5} style={{ position: 'absolute', top: -3, right: -4, color: '#3B82F6' }} />
+  </span>
+);
+
 export default function LeadForm() {
   const [submitted, setSubmitted] = useState(false);
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.15 });
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm({
+    mode: 'onBlur'
+  });
 
   const onSubmit = (data: any) => {
     console.log('Lead Data:', data);
@@ -34,7 +50,9 @@ export default function LeadForm() {
           animate={inView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
-          <span className="lead__badge glass-panel">🚀 Free Demo</span>
+          <span className="lead__badge glass-panel" style={{ display: 'inline-flex', alignItems: 'center' }}>
+            <DemoBadgeIcon /> Free Demo
+          </span>
           <h2 className="section-title lead__title">
             Book Your <span className="text-gradient">Free ERP Demo</span> Today
           </h2>
@@ -58,14 +76,18 @@ export default function LeadForm() {
 
           <div className="lead__contact">
             <p className="lead__contact-label">Or reach out directly:</p>
-            <a href="tel:+919999999999" className="lead__phone">📞 +91 99999 99999</a>
+            <a href="tel:+919999999999" className="lead__phone" style={{ display: 'inline-flex', alignItems: 'center' }}>
+              <PhoneCall size={18} strokeWidth={2} style={{ color: '#EC4899', filter: 'drop-shadow(0 0 4px rgba(236, 72, 153, 0.4))', marginRight: '8px' }} />
+              +91 99999 99999
+            </a>
             <a
               href="https://wa.me/919999999999"
               className="lead__wa"
               target="_blank"
               rel="noreferrer"
+              style={{ display: 'inline-flex', alignItems: 'center' }}
             >
-              💬 WhatsApp Us
+              <WhatsAppOutlineIcon /> WhatsApp Us
             </a>
           </div>
         </motion.div>
@@ -119,9 +141,14 @@ export default function LeadForm() {
                     className={`lead__input glass-panel ${errors.mobile ? 'lead__input--error' : ''}`}
                     placeholder="10-digit mobile number"
                     type="tel"
+                    maxLength={10}
                     {...register('mobile', {
-                      required: 'Mobile number is required',
-                      pattern: { value: /^[6-9]\d{9}$/, message: 'Enter a valid 10-digit number' },
+                      required: 'Please enter your mobile number',
+                      validate: {
+                        isNumeric: (v) => /^[0-9]+$/.test(v) || 'Only numbers are allowed',
+                        exactLength: (v) => v.length === 10 || 'Mobile number must be exactly 10 digits',
+                        validStart: (v) => /^[6-9]/.test(v) || 'Please enter a valid Indian mobile number',
+                      }
                     })}
                   />
                   {errors.mobile && <span className="lead__error">{errors.mobile.message as string}</span>}
@@ -145,7 +172,7 @@ export default function LeadForm() {
                 </div>
 
                 <button type="submit" className="btn-primary lead__submit">
-                  <Rocket size={18} /> Get Free Demo
+                  <Wand2 size={20} color="#fff" /> Get Free Demo
                 </button>
 
                 <p className="lead__disclaimer">

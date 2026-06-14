@@ -2,14 +2,14 @@
 
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ShoppingBag, Layers, Factory, Truck } from 'lucide-react';
+import { Store, Boxes, Factory, Truck } from 'lucide-react';
 import './Trust.css';
 
 const cards = [
-  { icon: <ShoppingBag size={32} />, label: 'Retail', desc: 'Kirana to superstore', color: 'var(--primary-light)' },
-  { icon: <Layers size={32} />, label: 'Wholesale', desc: 'Bulk trading businesses', color: 'var(--secondary-light)' },
-  { icon: <Factory size={32} />, label: 'Manufacturing', desc: 'Production management', color: 'var(--accent)' },
-  { icon: <Truck size={32} />, label: 'Distribution', desc: 'Multi-branch logistics', color: '#F59E0B' },
+  { icon: <Store size={40} strokeWidth={2.5} />, label: 'Retail', desc: 'Kirana to superstore', color: '#3B82F6' },
+  { icon: <Boxes size={40} strokeWidth={2.5} />, label: 'Wholesale', desc: 'Bulk trading businesses', color: '#8B5CF6' },
+  { icon: <Factory size={40} strokeWidth={2.5} />, label: 'Manufacturing', desc: 'Production management', color: '#22C55E' },
+  { icon: <Truck size={40} strokeWidth={2.5} />, label: 'Distribution', desc: 'Multi-branch logistics', color: '#F59E0B' },
 ];
 
 export default function Trust() {
@@ -36,8 +36,9 @@ export default function Trust() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.12 }}
+              style={{ '--accent-color': c.color } as React.CSSProperties}
             >
-              <div className="trust__card-icon" style={{ color: c.color, boxShadow: `0 0 20px ${c.color}40` }}>
+              <div className="trust__card-icon">
                 {c.icon}
               </div>
               <p className="trust__card-label">{c.label}</p>
