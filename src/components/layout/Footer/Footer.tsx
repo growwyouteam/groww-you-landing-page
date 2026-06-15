@@ -25,11 +25,11 @@ export default function Footer() {
 
         <div className="footer__contact">
           <h4 className="footer__contact-title">Contact Us</h4>
-          <a href="tel:+919999999999" className="footer__link">
-            <FaPhone size={14} /> +91 99999 99999
+          <a href="tel:+919084734438" className="footer__link">
+            <FaPhone size={14} /> +91 9084734438
           </a>
           <a
-            href="https://wa.me/919999999999"
+            href="https://wa.me/919084734438"
             className="footer__link footer__link--wa"
             target="_blank"
             rel="noreferrer"

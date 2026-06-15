@@ -76,12 +76,12 @@ export default function LeadForm() {
 
           <div className="lead__contact">
             <p className="lead__contact-label">Or reach out directly:</p>
-            <a href="tel:+919999999999" className="lead__phone" style={{ display: 'inline-flex', alignItems: 'center' }}>
+            <a href="tel:+919084734438" className="lead__phone" style={{ display: 'inline-flex', alignItems: 'center' }}>
               <PhoneCall size={18} strokeWidth={2} style={{ color: '#EC4899', filter: 'drop-shadow(0 0 4px rgba(236, 72, 153, 0.4))', marginRight: '8px' }} />
-              +91 99999 99999
+              +91 9084734438
             </a>
             <a
-              href="https://wa.me/919999999999"
+              href="https://wa.me/919084734438"
               className="lead__wa"
               target="_blank"
               rel="noreferrer"
@@ -109,7 +109,7 @@ export default function LeadForm() {
               <div className="lead__success-icon">🎉</div>
               <h3>Thank You!</h3>
               <p>Your demo request has been received. Our team will contact you within 2 hours.</p>
-              <a href="https://wa.me/919999999999" className="btn-whatsapp lead__wa-btn" target="_blank" rel="noreferrer">
+              <a href="https://wa.me/919084734438" className="btn-whatsapp lead__wa-btn" target="_blank" rel="noreferrer">
                 Chat on WhatsApp
               </a>
             </motion.div>
