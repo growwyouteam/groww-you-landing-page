@@ -22,13 +22,14 @@ const config: Config = {
           DEFAULT: '#8B5CF6',
           light: '#A78BFA',
         },
+        accent: {
+          DEFAULT: '#22C55E',
+          orange: '#EF4B21',
+        },
         dark: {
           bg: '#0F172A',
           surface: '#1E293B',
         },
-        accent: {
-          DEFAULT: '#22C55E',
-        }
       },
     },
   },

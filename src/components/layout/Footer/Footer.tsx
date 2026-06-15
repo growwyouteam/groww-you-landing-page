@@ -10,13 +10,7 @@ export default function Footer() {
       <div className="container footer__inner">
         <div className="footer__brand">
           <div className="footer__logo">
-            <div className="footer__logo-icon">
-              <TrendingUp size={20} color="#fff" />
-            </div>
-            <span>
-              <span className="footer__logo-grow">Groww You</span>
-              <span className="footer__logo-erp"> ERP</span>
-            </span>
+            <img src="/groww-you-logo.jpeg" alt="Groww You logo" className="footer__logo-icon" />
           </div>
           <p className="footer__tagline">
             India's trusted business ERP software. Billing, inventory aur accounts — sab ek jagah.

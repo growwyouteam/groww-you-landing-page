@@ -1,9 +1,8 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, TrendingUp } from 'lucide-react';
 import './Navbar.css';
 
 const navLinks = [
@@ -32,15 +31,7 @@ export default function Navbar() {
     >
       <div className="container navbar__inner">
         <a href="#home" className="navbar__logo">
-          <div className="navbar__logo-icon">
-            <Image
-              src="/src/components/layout/navbar/logo groww you.jpeg"
-              alt="Groww You Logo"
-              width={32}
-              height={32}
-              priority
-            />
-          </div>
+          <img src="/groww-you-logo.jpeg" alt="Groww You logo" className="navbar__logo-icon" />
           <span className="navbar__logo-text">
             Groww You ERP
           </span>
