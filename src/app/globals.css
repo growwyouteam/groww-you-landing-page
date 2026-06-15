@@ -10,6 +10,8 @@
     --primary-dark: #1D4ED8;
     --secondary: #8B5CF6;
     --secondary-light: #A78BFA;
+    --accent-orange: #EF4B21;
+    --accent-orange-light: #FB6A44;
 
     --dark-bg: #0F172A;
     /* Main Background */
@@ -27,9 +29,9 @@
 
     /* Borders & Shadows */
     --border-light: rgba(255, 255, 255, 0.1);
-    --border-glow: rgba(139, 92, 246, 0.3);
+    --border-glow: rgba(239, 75, 33, 0.25);
 
-    --shadow-glow-primary: 0 0 20px rgba(37, 99, 235, 0.4);
+    --shadow-glow-primary: 0 0 20px rgba(239, 75, 33, 0.35);
     --shadow-glow-secondary: 0 0 20px rgba(139, 92, 246, 0.4);
     --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 
@@ -73,7 +75,7 @@
 
 @layer utilities {
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-br from-blue-400 to-purple-400;
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-orange-400 to-purple-400;
   }
 
   .section-title {
@@ -121,8 +123,8 @@
 
   /* Button Utilities */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2.5 bg-gradient-to-br from-blue-600 to-purple-500 text-white px-8 py-4 rounded-xl font-semibold text-base transition-all duration-300 relative overflow-hidden;
-    box-shadow: var(--shadow-glow-primary);
+    @apply inline-flex items-center justify-center gap-2.5 bg-gradient-to-br from-orange-500 to-purple-500 text-white px-8 py-4 rounded-xl font-semibold text-base transition-all duration-300 relative overflow-hidden;
+    box-shadow: 0 0 30px rgba(239, 75, 33, 0.25);
   }
 
   .btn-primary::before {
@@ -142,7 +144,7 @@
 
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 0 30px rgba(139, 92, 246, 0.6);
+    box-shadow: 0 0 30px rgba(239, 75, 33, 0.6);
   }
 
   .btn-whatsapp {
@@ -161,7 +163,7 @@
     position: absolute;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, rgba(37, 99, 235, 0.1) 40%, transparent 70%);
+    background: radial-gradient(circle, rgba(239, 75, 33, 0.16) 0%, rgba(139, 92, 246, 0.12) 28%, rgba(37, 99, 235, 0.08) 55%, transparent 70%);
     filter: blur(60px);
     z-index: -1;
     pointer-events: none;

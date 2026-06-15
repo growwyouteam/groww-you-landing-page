@@ -32,8 +32,8 @@
 }
 
 .faq__item--open {
-  border-color: #BFDBFE;
-  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.1);
+  border-color: rgba(239, 75, 33, 0.35);
+  box-shadow: 0 4px 20px rgba(239, 75, 33, 0.12);
 }
 
 .faq__question {
@@ -53,7 +53,7 @@
 }
 
 .faq__item--open .faq__question {
-  color: #2563EB;
+  color: var(--accent-orange);
 }
 
 .faq__chevron {
@@ -62,7 +62,7 @@
 }
 
 .faq__item--open .faq__chevron {
-  color: #2563EB;
+  color: var(--accent-orange);
 }
 
 .faq__answer {

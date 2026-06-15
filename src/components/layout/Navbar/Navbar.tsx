@@ -31,9 +31,7 @@ export default function Navbar() {
     >
       <div className="container navbar__inner">
         <a href="#home" className="navbar__logo">
-          <div className="navbar__logo-icon">
-            <TrendingUp size={20} color="#fff" />
-          </div>
+          <img src="/groww-you-logo.jpeg" alt="Groww You logo" className="navbar__logo-icon" />
           <span className="navbar__logo-text">
             Groww You ERP
           </span>
