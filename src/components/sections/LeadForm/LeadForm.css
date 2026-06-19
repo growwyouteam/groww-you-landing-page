@@ -230,6 +230,78 @@
   margin-top: 16px;
 }
 
+/* Error Toast */
+.lead__toast {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+
+.lead__toast-icon {
+  color: #EF4444;
+  flex-shrink: 0;
+}
+
+.lead__toast-text {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 500;
+  color: #FCA5A5;
+  line-height: 1.4;
+}
+
+.lead__toast-close {
+  background: none;
+  border: none;
+  color: #FCA5A5;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.lead__toast-close:hover {
+  background: rgba(239, 68, 68, 0.15);
+}
+
+/* Loading spinner */
+.lead__spinner {
+  animation: lead-spin 1s linear infinite;
+  color: #fff;
+}
+
+@keyframes lead-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Submit button loading state */
+.lead__submit--loading {
+  opacity: 0.8;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.lead__submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Disabled input state */
+.lead__input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 @media (max-width: 1024px) {
   .lead__inner {
     grid-template-columns: 1fr;

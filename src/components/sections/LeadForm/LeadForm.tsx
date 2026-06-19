@@ -1,11 +1,17 @@
 "use client";
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useForm } from 'react-hook-form';
-import { Rocket, User, Phone, Briefcase, CheckCircle, PhoneCall, Sparkles, Wand2 } from 'lucide-react';
+import { Rocket, User, Phone, Briefcase, CheckCircle, PhoneCall, Sparkles, Wand2, Loader2, AlertCircle, X } from 'lucide-react';
 import './LeadForm.css';
+
+interface LeadFormData {
+  name: string;
+  mobile: string;
+  business: string;
+}
 
 const businessTypes = [
   'Retail Shop', 'Wholesale Business', 'Manufacturing Unit',
@@ -29,14 +35,41 @@ const DemoBadgeIcon = () => (
 
 export default function LeadForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.15 });
-  const { register, handleSubmit, formState: { errors } } = useForm({
+  const { register, handleSubmit, formState: { errors } } = useForm<LeadFormData>({
     mode: 'onBlur'
   });
 
-  const onSubmit = (data: any) => {
-    console.log('Lead Data:', data);
-    setSubmitted(true);
+  const onSubmit = async (data: LeadFormData) => {
+    setIsSubmitting(true);
+    setErrorMessage(null);
+
+    try {
+      const response = await fetch('/api/demo-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: data.name,
+          mobile: data.mobile,
+          business: data.business,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || 'Something went wrong. Please try again.');
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Something went wrong. Please try again.';
+      setErrorMessage(message);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -120,6 +153,29 @@ export default function LeadForm() {
                 <p className="lead__card-sub">100% Free • No Credit Card Required</p>
               </div>
 
+              {/* Error Toast */}
+              <AnimatePresence>
+                {errorMessage && (
+                  <motion.div
+                    className="lead__toast"
+                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <AlertCircle size={18} className="lead__toast-icon" />
+                    <span className="lead__toast-text">{errorMessage}</span>
+                    <button
+                      className="lead__toast-close"
+                      onClick={() => setErrorMessage(null)}
+                      aria-label="Dismiss error"
+                    >
+                      <X size={14} />
+                    </button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
               <form onSubmit={handleSubmit(onSubmit)} className="lead__form" noValidate>
                 <div className="lead__field">
                   <label className="lead__label">
@@ -128,6 +184,7 @@ export default function LeadForm() {
                   <input
                     className={`lead__input glass-panel ${errors.name ? 'lead__input--error' : ''}`}
                     placeholder="Full Name"
+                    disabled={isSubmitting}
                     {...register('name', { required: 'Name is required' })}
                   />
                   {errors.name && <span className="lead__error">{errors.name.message as string}</span>}
@@ -142,6 +199,7 @@ export default function LeadForm() {
                     placeholder="10-digit mobile number"
                     type="tel"
                     maxLength={10}
+                    disabled={isSubmitting}
                     {...register('mobile', {
                       required: 'Please enter your mobile number',
                       validate: {
@@ -162,6 +220,7 @@ export default function LeadForm() {
                     className={`lead__input lead__select glass-panel ${errors.business ? 'lead__input--error' : ''}`}
                     {...register('business', { required: 'Please select a business type' })}
                     defaultValue=""
+                    disabled={isSubmitting}
                   >
                     <option value="" disabled style={{color: '#000'}}>Select business type</option>
                     {businessTypes.map((b) => (
@@ -171,8 +230,20 @@ export default function LeadForm() {
                   {errors.business && <span className="lead__error">{errors.business.message as string}</span>}
                 </div>
 
-                <button type="submit" className="btn-primary lead__submit">
-                  <Wand2 size={20} color="#fff" /> Get Free Demo
+                <button
+                  type="submit"
+                  className={`btn-primary lead__submit ${isSubmitting ? 'lead__submit--loading' : ''}`}
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 size={20} className="lead__spinner" /> Submitting...
+                    </>
+                  ) : (
+                    <>
+                      <Wand2 size={20} color="#fff" /> Get Free Demo
+                    </>
+                  )}
                 </button>
 
                 <p className="lead__disclaimer">
