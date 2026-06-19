@@ -206,8 +206,7 @@ export async function POST(request: NextRequest) {
     // 3. Send email via Resend
     console.log('[demo-lead] Sending email via Resend...');
     const resend = new Resend(apiKey);
-    const companyEmail = process.env.LEAD_RECEIVER_EMAIL || 'your-company-email@gmail.com';
-
+    const companyEmail = 'aimediapixel.official@gmail.com';
     const { data: emailData, error: emailError } = await resend.emails.send({
       from: 'Groww You ERP <onboarding@resend.dev>', // Change to your verified domain after setup
       to: [companyEmail],
