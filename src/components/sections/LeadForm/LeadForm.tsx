@@ -49,13 +49,23 @@ export default function LeadForm() {
     try {
       const response = await fetch('/api/demo-lead', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
         body: JSON.stringify({
           name: data.name,
           mobile: data.mobile,
           business: data.business,
         }),
       });
+
+      const contentType = response.headers.get("content-type");
+      if (!contentType || !contentType.includes("application/json")) {
+        const textResponse = await response.text();
+        console.error("API response is not JSON. Status:", response.status, "Text:", textResponse.substring(0, 200) + "...");
+        throw new Error("API endpoint is not reachable or not returning JSON. If you are using static export (output: 'export'), API routes won't work.");
+      }
 
       const result = await response.json();
 
