@@ -335,3 +335,17 @@
     display: none;
   }
 }
+
+@media (max-width: 480px) {
+  .hero__db-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero__db-stat-val {
+    font-size: 16px;
+  }
+  
+  .hero__dashboard-body {
+    padding: 16px;
+  }
+}

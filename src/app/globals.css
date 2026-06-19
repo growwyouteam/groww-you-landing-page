@@ -44,10 +44,13 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
   }
 
   body {
     @apply bg-[#0F172A] text-[#F8FAFC] antialiased leading-relaxed overflow-x-hidden;
+    width: 100%;
   }
 
   h1,
@@ -64,6 +67,10 @@
   section {
     padding: 100px 0;
     position: relative;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
   }
 
   @media (max-width: 768px) {

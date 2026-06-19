@@ -7,7 +7,7 @@ import Features from '@/components/sections/Features/Features';
 import WhyChoose from '@/components/sections/WhyChoose/WhyChoose';
 import Gallery from '@/components/sections/Gallery/Gallery';
 import DemoVideo from '@/components/sections/DemoVideo/DemoVideo';
-import Stats from '@/components/sections/Stats/Stats';
+import Testimonials from '@/components/sections/Testimonials/Testimonials';
 import LeadForm from '@/components/sections/LeadForm/LeadForm';
 import FAQ from '@/components/sections/FAQ/FAQ';
 
@@ -23,7 +23,7 @@ export default function Home() {
       <WhyChoose />
       <Gallery />
       <DemoVideo />
-      <Stats />
+      <Testimonials />
       <LeadForm />
       <FAQ />
     </main>
